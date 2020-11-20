@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rating Frequency</title>
+</head>
+<body>
+    <h1>Welcome to the Rating Frequency App</h1>
+
+    <p>Enter any number between 1 to 7 and submit.<br>
+    Click on Results button to display the frequency of each number entered.</p>
+    <label for="Rating">Enter number: </label>
+    <input type="number" step="1" name="Rating" class="rating"  required>  
+    <button onclick="submitRating()">Submit</button><br><br>
+
+    <button class="results">Results</button>
+    
+    <div>
+        <h2>Results:</h2>
+        <table>
+
+        </table>
+    </div>
+
+    <script>
+        var submittedRatings = [];
+
+        function submitRating() {
+            let rating = document.querySelector(".rating").value;
+            rating = parseInt(rating);
+            if (!Number.isInteger(rating) || rating < 1 || rating > 7) {
+                alert("Enter a number between 1 and 7")
+                return false;
+            }else{
+                submittedRatings.push(rating);
+                document.querySelector(".rating").value = '';
+            }
+            
+        }
+
+        function showResults(submittedRatings) {
+            alert(submittedRatings);
+            location.reload();
+            return false;
+        }
+
+        const button = document.querySelector('.results')
+        button.addEventListener("click", function(){showResults(submittedRatings)})
+    </script>
+</body>
+</html>
