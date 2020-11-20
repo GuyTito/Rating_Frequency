@@ -4,7 +4,7 @@ This is an answer to a question posted in a dev group
 The picture below is the picture of the problem
 
 
-![Question](Rating Scale.png)
+![Question](Rating_Scale.png)
 
 
 ## How it works
