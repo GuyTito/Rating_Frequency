@@ -1,7 +1,7 @@
 # Rating_Frequency
-Display frequency of elements in array
-This is an answer to a question posted in a dev group
-The picture below is the picture of the problem
+Display frequency of elements in array.
+This is an html and js implementation of the answer to a question posted in a dev group.
+The picture below is the picture of the question.
 
 
 ![Question](Rating_Scale.png)
