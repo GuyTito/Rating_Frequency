@@ -14,8 +14,10 @@
     <input type="number" step="1" name="Rating" class="rating"  required>  
     <button onclick="submitRating()">Submit</button><br><br>
 
+    <p id="enteredNumbers"></p>
+
     <button class="results">Results</button>
-    
+
     <div>
         <h2>Results:</h2>
         <table>
@@ -34,6 +36,8 @@
                 return false;
             }else{
                 submittedRatings.push(rating);
+                let enteredNumbers = document.querySelector('#enteredNumbers');
+                enteredNumbers.innerHTML = submittedRatings;
                 document.querySelector(".rating").value = '';
             }
             
