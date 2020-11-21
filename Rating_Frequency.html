@@ -3,6 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        table, th, td {
+          border: 1px solid black;
+          border-collapse: collapse;
+        }
+    </style>
     <title>Rating Frequency</title>
 </head>
 <body>
@@ -21,7 +27,15 @@
     <div>
         <h2>Results:</h2>
         <table>
+            <thead>
+                <tr>
+                    <th>Rating</th>
+                    <th>Frequency</th>
+                </tr>
+            </thead>
+            <tbody>
 
+            </tbody>
         </table>
     </div>
 
@@ -44,13 +58,20 @@
         }
 
         function showResults(submittedRatings) {
-            alert(submittedRatings);
-            location.reload();
-            return false;
+            let count = {};
+            submittedRatings.forEach(i => count[i] = (count[i] || 0) + 1);
+            const tbody = document.querySelector("tbody");
+            for (let key of Object.keys(count)) {
+                let row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>&emsp;${key}</td>
+                    <td>&emsp;${count[key]}</td>`;
+                    tbody.appendChild(row);
+            }
         }
 
-        const button = document.querySelector('.results')
-        button.addEventListener("click", function(){showResults(submittedRatings)})
+        const button = document.querySelector('.results');
+        button.addEventListener("click", function(){showResults(submittedRatings)}, {once : true});
     </script>
 </body>
 </html>
