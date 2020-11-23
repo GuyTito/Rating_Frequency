@@ -12,5 +12,3 @@ The picture below is the picture of the question.
 * Click on Results button to display the frequency of each number entered.
 
 
-### NB:
-The object oriented implementation is in the _OOP-Paradigm_ branch
