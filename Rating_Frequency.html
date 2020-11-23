@@ -39,43 +39,6 @@
         </table>
     </div>
 
-    <script>
-        var submittedRatings = [];
-
-        function submitRating() {
-            let rating = document.querySelector("#rating").value;
-            rating = parseInt(rating);
-            if (!Number.isInteger(rating) || rating < 1 || rating > 7) {
-                alert("Enter a number between 1 and 7")
-                return false;
-            }else{
-                submittedRatings.push(rating);
-                let enteredNumbers = document.querySelector('#enteredNumbers');
-                enteredNumbers.innerHTML = submittedRatings;
-                document.querySelector(".rating").value = '';
-            }
-        }
-
-        function showResults(submittedRatings) {
-            let count = {};
-            submittedRatings.forEach(i => count[i] = (count[i] || 0) + 1);
-            const tbody = document.querySelector("tbody");
-            for (let key of Object.keys(count)) {
-                let row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>&emsp;${key}</td>
-                    <td>&emsp;${count[key]}</td>`;
-                tbody.appendChild(row);
-            }
-        }
-
-        const btnSubmit = document.querySelector('#submit');
-        btnSubmit.addEventListener("click", function(){submitRating()});
-
-        const btnResults = document.querySelector('#results');
-        btnResults.addEventListener("click", () => {
-            showResults(submittedRatings)
-        }, {once : true} );
-    </script>
+    <script src="rating.js"></script>
 </body>
 </html>
