@@ -17,12 +17,12 @@
     <p>Enter any number between 1 to 7 and submit.<br>
     Click on Results button to display the frequency of each number entered.</p>
     <label for="Rating">Enter number: </label>
-    <input type="number" step="1" name="Rating" class="rating"  required>  
-    <button onclick="submitRating()">Submit</button><br><br>
+    <input type="number" step="1" name="Rating" id="rating"  required>  
+    <button id="submit">Submit</button><br><br>
 
     <p id="enteredNumbers"></p>
 
-    <button class="results">Results</button>
+    <button id="results">Results</button>
 
     <div>
         <h2>Results:</h2>
@@ -43,7 +43,7 @@
         var submittedRatings = [];
 
         function submitRating() {
-            let rating = document.querySelector(".rating").value;
+            let rating = document.querySelector("#rating").value;
             rating = parseInt(rating);
             if (!Number.isInteger(rating) || rating < 1 || rating > 7) {
                 alert("Enter a number between 1 and 7")
@@ -54,7 +54,6 @@
                 enteredNumbers.innerHTML = submittedRatings;
                 document.querySelector(".rating").value = '';
             }
-            
         }
 
         function showResults(submittedRatings) {
@@ -66,12 +65,17 @@
                 row.innerHTML = `
                     <td>&emsp;${key}</td>
                     <td>&emsp;${count[key]}</td>`;
-                    tbody.appendChild(row);
+                tbody.appendChild(row);
             }
         }
 
-        const button = document.querySelector('.results');
-        button.addEventListener("click", function(){showResults(submittedRatings)}, {once : true});
+        const btnSubmit = document.querySelector('#submit');
+        btnSubmit.addEventListener("click", function(){submitRating()});
+
+        const btnResults = document.querySelector('#results');
+        btnResults.addEventListener("click", () => {
+            showResults(submittedRatings)
+        }, {once : true} );
     </script>
 </body>
 </html>
